@@ -1,0 +1,29 @@
+<h1>Welcome to <%= @event.name %>'s page</h1>
+
+<ul>
+	<li>
+		<%= @event.name %><br>
+		<%= @event.description %><br>
+		<%= @event.address %><br>
+		<%= @event.city %><br>
+		<%= @event.state %><br>
+		<%= @event.zip %><br>
+		<%= @event.cost %><br>
+		<%= @event.attendees %><br>
+		<%= @event.start_date %><br>
+		<%= @event.end_date %><br>
+	</li>
+</ul>
+
+<%= link_to "Edit Event", edit_event_path %><br>
+<%= link_to "Event Index", events_path %>
+
+
+
+
+
+
+
+
+
+

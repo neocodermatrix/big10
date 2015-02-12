@@ -1,0 +1,12 @@
+<h1>This is <%= @user.name %>'s profile page</h1>
+<%= @user.address %><br>
+<%= @user.city %><br>
+<%= @user.state %><br>
+<%= @user.zip %><br>
+<%= @user.email %><br>
+
+<%= link_to "Home Page", users_path %><br>
+<%= link_to "Edit Profile", edit_user_path(@user) %>
+
+
+

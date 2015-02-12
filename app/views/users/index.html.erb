@@ -1,0 +1,23 @@
+<h1>Welcome to Big10</h1>
+
+<h2>See all outdoor enthusiasts!</h2>
+
+<% @users.each do |u| %>
+	<ul>
+		<li>
+			<%= link_to u.name, user_path(u) %>
+			<%= u.city %>
+		</li>
+	</ul>
+<% end %>
+
+<%= link_to "Sign Up", signup_path %><br>
+<%#= link_to "Edit Your Profile", edit_user_path(current_user) %><br>
+<%#= link_to 'Log Out', logout_path, method: :delete %>
+
+	<% if logged_in? %>
+	Logged in as: <%= current_user.name %> <%= link_to "Log Out", logout_path, method: :delete %>
+	<% else %>
+	<%= link_to 'Log In', login_path %>
+	<% end %>
+

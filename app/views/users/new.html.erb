@@ -1,0 +1,49 @@
+<h1>Sign Up</h1>
+
+<%= form_for @user do |u| %>
+	<div>
+		<%= u.label :name, "Name" %>
+		<%= u.text_field :name %>
+	</div>	
+
+	<div>
+		<%= u.label :email, "email" %>
+		<%= u.text_field :email %>
+	</div>
+	
+	<div>
+		<%= u.label :address, "address" %>
+		<%= u.text_field :address %>
+	</div>
+	
+	<div>
+		<%= u.label :city, "city" %>
+		<%= u.text_field :city %>
+	</div>
+	
+	<div>
+		<%= u.label :state, "state" %>
+		<%= u.text_field :state %>
+	</div>
+	
+	<div>
+		<%= u.label :zip, "zip" %>
+		<%= u.text_field :zip %>
+	</div>
+	
+	<div>
+		<%= u.label :password, "password" %>
+		<%= u.password_field :password %>
+	</div>
+
+	<div>
+		<%= u.label :password_confirmation, "password confirmation" %>
+		<%= u.password_field :password_confirmation %>
+	</div>
+
+		<%= u.submit "Submit" %>
+
+<% end %>
+
+<%= link_to "Home Page", users_path %>
+

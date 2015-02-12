@@ -1,0 +1,52 @@
+<h1>Event Form</h1>
+
+<%= form_for @event do |e| %>
+
+	<div>
+		<%= e.label "Name", :name %>
+		<%= e.text_field :name %>
+	</div>
+	
+	<div>
+		<%= e.label "Description", :description %>
+		<%= e.text_field :description %>
+	</div>
+
+	<div>
+		<%= e.label "Start Date", :start_date %>
+		<%= e.date_field :start_date %>
+	</div>	
+
+	<div>
+		<%= e.label "End Date", :end_date %>
+		<%= e.date_field :end_date %>
+	</div>
+
+	<div>
+		<%= e.label "Cost", :cost %>
+		<%= e.text_field :cost %>
+	</div>
+	
+	<div>
+		<%= e.label "Address", :address %>
+		<%= e.text_field :address %>
+	</div>
+
+	<div>
+		<%= e.label "City", :city %>
+		<%= e.text_field :city %>
+	</div>
+
+	<div>
+		<%= e.label "State", :state %>
+		<%= e.text_field :state %>
+	</div>
+
+	<div>
+		<%= e.label "Zip", :zip %>
+		<%= e.text_field :zip %>
+	</div>
+		<%= e.submit "Submit" %>
+<% end %>
+
+

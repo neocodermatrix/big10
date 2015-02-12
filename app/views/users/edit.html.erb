@@ -1,0 +1,47 @@
+<h1>Edit Profile Page <%= @user.name %></h1>
+
+<%= form_for @user do |u| %>
+	<div>
+		<%= u.label "Name", :name %>
+		<%= u.text_field :name %>
+	</div>
+
+	<div>
+		<%= u.label "Address", :address %>
+		<%= u.text_field :address %>
+	</div>
+
+	<div>
+		<%= u.label "City", :city %>
+		<%= u.text_field :city %>
+	</div>
+
+	<div>
+		<%= u.label "State", :state %>
+		<%= u.text_field :state %>
+	</div>
+
+	<div>
+		<%= u.label "Zip", :zip %>
+		<%= u.text_field :zip %>
+	</div>
+
+	<div>
+		<%= u.label "Password", :password %>
+		<%= u.password_field :password %>
+	</div>
+
+	<div>
+		<%= u.label "Password", :password_confirmation %>
+		<%= u.password_field :password_confirmation %>
+	</div>
+
+	<div>
+		<%= u.submit "Submit" %>
+	</div>
+<% end %>
+
+<%= link_to "Home Page", users_path %><br>
+<%= link_to "Delete", :user, method: :delete, data: {confirm: "Are you sure?"} %>
+
+
