@@ -12,8 +12,7 @@
 <% end %>
 
 <%= link_to "Sign Up", signup_path %><br>
-<%#= link_to "Edit Your Profile", edit_user_path(current_user) %><br>
-<%#= link_to 'Log Out', logout_path, method: :delete %>
+
 
 	<% if logged_in? %>
 	Logged in as: <%= current_user.name %> <%= link_to "Log Out", logout_path, method: :delete %>

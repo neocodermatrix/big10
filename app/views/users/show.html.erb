@@ -6,7 +6,12 @@
 <%= @user.email %><br>
 
 <%= link_to "Home Page", users_path %><br>
-<%= link_to "Edit Profile", edit_user_path(@user) %>
+<%= link_to "Create Events", events_path %><br>
+
+<% if current_user == @user %>
+<%= link_to "Edit Profile", edit_user_path(@user) %><br>
+<% end %>
+
 
 
 
