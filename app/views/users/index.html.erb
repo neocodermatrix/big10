@@ -11,12 +11,6 @@
 	</ul>
 <% end %>
 
-<%= link_to "Sign Up", signup_path %><br>
 
 
-	<% if logged_in? %>
-	Logged in as: <%= current_user.name %> <%= link_to "Log Out", logout_path, method: :delete %>
-	<% else %>
-	<%= link_to 'Log In', login_path %>
-	<% end %>
 

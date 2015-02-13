@@ -5,6 +5,7 @@ before_action :authorize?, only: :edit
 
   def index
     @users = User.all
+
   end
 
   def show

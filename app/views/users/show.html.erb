@@ -5,13 +5,25 @@
 <%= @user.zip %><br>
 <%= @user.email %><br>
 
-<%= link_to "Home Page", users_path %><br>
-<%= link_to "Create Events", events_path %><br>
+<button>Request Friendship</button>
 
 <% if current_user == @user %>
 <%= link_to "Edit Profile", edit_user_path(@user) %><br>
 <% end %>
 
+<ul>
+<% @user.users_events.each do |e| %>
+<li>
+	<%= link_to e.event.name, event_path(e.event_id) %><br>
+	<%= e.event.description %><br>
+	<%= e.event.address %><br>
+	<%= e.event.city %><br>
+	<%= e.event.state %><br>
+	<%= e.event.zip %><br>
+	<%= e.event.cost %><br><br>
+</li>
+<% end %>
+</ul>
 
-
+<%#= @user.events %> 
 
