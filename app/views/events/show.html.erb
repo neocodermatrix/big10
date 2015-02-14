@@ -1,4 +1,4 @@
-<h1>Welcome to <%= @event.name %>'s page</h1>
+<h1>SHOW EVENT PAGE: Welcome to <%= @event.name %>'s page</h1>
 
 <ul>
 	<li>
@@ -24,10 +24,13 @@
 
 
 <h4>List of Attendees</h4>
-<% @event.users.each do |f| %>
-<%= f.name %>
-<% end %>
-
+<ul>
+	<% @event.users.each do |f| %>
+		<li>
+			<%= f.name %>
+		</li>
+	<% end %>
+</ul>
 
 
 

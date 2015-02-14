@@ -10,6 +10,7 @@ before_action :authorize?, only: :edit
 
   def show
     @user = User.find(params[:id])
+    @event = Event.find(params[:id])
   end
 
   def new

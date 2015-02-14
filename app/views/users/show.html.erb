@@ -1,4 +1,4 @@
-<h1>This is <%= @user.name %>'s profile page</h1>
+<h1>SHOW USER PAGE: This is <%= @user.name %>'s show page</h1>
 <%= @user.address %><br>
 <%= @user.city %><br>
 <%= @user.state %><br>
@@ -19,6 +19,15 @@
 	<%= e.event.cost %><br><br>
 </li>
 <% end %>
+</ul>
+
+<h2>Events I'm Attending</h2>
+<ul>
+	<% @event.users.each do |u| %>
+	<li>
+		<%= u.name %>
+	</li>
+	<% end %>
 </ul>
 
 <%# @user.events.each do |f| %> 
