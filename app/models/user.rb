@@ -1,9 +1,21 @@
 class User < ActiveRecord::Base
 	has_many :events, through: :users_events 
 	has_many :users_events
-	has_many :events, as: :creator
+	has_many :created_events, class: Event, foreign_key: "creator_id"
+	#has_many :events, as: :creator
+	#has_many :events, inverse_of: :creator
 
 	has_secure_password
+
+	# def created_events
+	# 	Event.where(creator: self)
+	# 	#u.created_events.  return an array of all events.
+	# 	#self refers to the user that's calling the method.
+	# 	#instance method a method thats called by an instance of the class.
+	# 	#a speciifc user is calling the method.
+	# end
+
+
 
 	# def events
 	# 	@events_arr = [] #empty array

@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :users
   get '/signup' => 'users#new'
 
-  resources :events
+  #resources :events
+
+  resources :events do 
+    post 'attend', on: :member
+  end
 
   get '/login'     => 'sessions#new'
   post '/login'    => 'sessions#create'

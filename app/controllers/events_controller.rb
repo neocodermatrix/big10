@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @user = current_user
+    #@user = User.where(:user => user_id).first
     @event = Event.find(params[:id])
   end
 
@@ -17,7 +17,8 @@ class EventsController < ApplicationController
   def create
     #@user = User.find(params[:user_id])
     @event = Event.new(event_params)
-    @event.users << current_user
+    @event.users << current_user #link the user(attendee) to the users_event table
+    @event.creator = current_user #link the creator(user) to the event table
     if @event.save
       redirect_to events_path
     else
@@ -42,6 +43,13 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
     redirect_to events_path
+  end
+
+  def attend
+    @event = Event.find(params[:id])
+    @event.users.push(current_user)
+    @event.save
+    redirect_to users_path
   end
 
   private

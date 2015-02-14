@@ -16,13 +16,17 @@
 </ul>
 
 <%#= @event.users %>
+<% if current_user == @event.creator %>
 <%= link_to "Edit Event", edit_event_path %><br>
+<% end %>
 
-
+<%= link_to "Join Event", attend_event_path(@event), method: :post %>
 
 
 <h4>List of Attendees</h4>
-
+<% @event.users.each do |f| %>
+<%= f.name %>
+<% end %>
 
 
 
