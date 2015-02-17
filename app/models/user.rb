@@ -7,6 +7,19 @@ class User < ActiveRecord::Base
 
 	has_secure_password
 
+	attr_reader :password
+
+	validates :name, presence: true
+    validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
+    validates :password, presence: true, confirmation: true, length: { in: 6..20 }
+
+      def password=(unencrypted_password)
+        unless unencrypted_password.empty?
+          @password = unencrypted_password
+          self.password_digest = BCrypt::Password.create(unencrypted_password)
+        end
+      end
+      
 	# def created_events
 	# 	Event.where(creator: self)
 	# 	#u.created_events.  return an array of all events.
