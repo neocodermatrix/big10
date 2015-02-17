@@ -2,23 +2,22 @@ class User < ActiveRecord::Base
 	has_many :events_attending, through: :users_events, class_name: Event, source: :event, dependent: :destroy  #events users are attending
 	has_many :users_events, dependent: :destroy
 	has_many :created_events, class_name: Event, foreign_key: "creator_id", dependent: :destroy
-	#has_many :events, as: :creator
-	#has_many :events, inverse_of: :creator
+	has_many :posts
 
 	has_secure_password
 
-	attr_reader :password
+	# attr_reader :password
 
 	validates :name, presence: true
     validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
     validates :password, presence: true, confirmation: true, length: { in: 6..20 }
 
-      def password=(unencrypted_password)
-        unless unencrypted_password.empty?
-          @password = unencrypted_password
-          self.password_digest = BCrypt::Password.create(unencrypted_password)
-        end
-      end
+      # def password=(unencrypted_password)
+      #   unless unencrypted_password.empty?
+      #     @password = unencrypted_password
+      #     self.password_digest = BCrypt::Password.create(unencrypted_password)
+      #   end
+      # end
       
 	# def created_events
 	# 	Event.where(creator: self)

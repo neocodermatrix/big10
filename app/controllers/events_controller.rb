@@ -21,7 +21,7 @@ class EventsController < ApplicationController
   def create
     #@user = User.find(params[:user_id])
     @event = Event.new(event_params)
-    @event.users << current_user #link the user(attendee) to the users_event table
+    #@event.users << current_user #link the user(attendee) to the users_event table
     @event.creator = current_user #link the creator(user) to the event table
     if @event.save
       redirect_to events_path
@@ -70,9 +70,13 @@ class EventsController < ApplicationController
     redirect_to event_path
   end
 
+  def is_Public?
+    @event = Event.find(params[:id])
+  end
+
   private
 
   def event_params
-    params.require(:event).permit(:name, :description, :start_date, :end_date, :cost, :address, :city, :state, :zip, :attendees)
+    params.require(:event).permit(:name, :description, :start_date, :end_date, :cost, :address, :city, :state, :zip, :attendees, :is_public)
   end
 end
