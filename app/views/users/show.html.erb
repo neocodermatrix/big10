@@ -21,15 +21,16 @@
 <% end %>
 </ul>
 
-<h2>Events I'm Attending</h2>
 <ul>
-	<% @event.users.each do |u| %>
-	<li>
-		<%= u.name %>
-	</li>
-	<% end %>
-</ul>
+	
+<% @user.events.each do |f| %> 
 
-<%# @user.events.each do |f| %> 
-<%#= f.name %>
-<%# end %>
+<li>
+	<%= f.name %><br>
+	<%= f.description %><br>
+	<%= f.cost %><br>
+</li>
+	<% end %>
+
+<%= @event1 %>
+</ul>

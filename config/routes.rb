@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :events do 
     post 'attend', on: :member
+    delete 'leave', on: :member
   end
 
   get '/login'     => 'sessions#new'

@@ -11,6 +11,10 @@ before_action :authorize?, only: :edit
   def show
     @user = User.find(params[:id])
     @event = Event.find(params[:id])
+    # @event1 = UsersEvent.where({
+    #   event_id: params[:id],
+    #   user_id: current_user.id
+    #   })
   end
 
   def new

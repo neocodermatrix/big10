@@ -52,6 +52,15 @@ class EventsController < ApplicationController
     redirect_to event_path
   end
 
+  def leave
+    @event = UsersEvent.where({
+      event_id: params[:id],
+      user_id: current_user.id
+      })
+    @event.destroy_all
+    redirect_to event_path
+  end
+
   private
 
   def event_params
