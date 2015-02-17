@@ -7,8 +7,10 @@ class EventsController < ApplicationController
   def show
     #@user = User.where(:user => user_id).first
     @event = Event.find(params[:id])
+
     @user_attending = @event.users.include?(current_user)
-    #gets an array users attending and it test to see if our current_user is one of them 
+    #gets an array of users attending an event and it test to see if our current_user is one of them
+
   end
 
   def new
@@ -48,9 +50,14 @@ class EventsController < ApplicationController
   end
 
   def attend
-    @event = Event.find(params[:id])
-    @event.users.push(current_user)
-    @event.save
+    # @event = Event.find(params[:id])
+    # @event.users.push(current_user)
+    # @event.save
+    # redirect_to event_path
+    @new_attendee = UsersEvent.new 
+    @new_attendee.user_id = current_user.id 
+    @new_attendee.event_id = params[:id]
+    @new_attendee.save
     redirect_to event_path
   end
 

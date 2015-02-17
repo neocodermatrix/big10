@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-	has_many :events, through: :users_events 
-	has_many :users_events
-	has_many :created_events, class: Event, foreign_key: "creator_id"
+	has_many :events_attending, through: :users_events, class_name: Event, source: :event, dependent: :destroy  #events users are attending
+	has_many :users_events, dependent: :destroy
+	has_many :created_events, class_name: Event, foreign_key: "creator_id", dependent: :destroy
 	#has_many :events, as: :creator
 	#has_many :events, inverse_of: :creator
 

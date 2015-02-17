@@ -10,11 +10,7 @@ before_action :authorize?, only: :edit
 
   def show
     @user = User.find(params[:id])
-    @event = Event.find(params[:id])
-    # @event1 = UsersEvent.where({
-    #   event_id: params[:id],
-    #   user_id: current_user.id
-    #   })
+    @user_attending = @user.events_attending
   end
 
   def new
@@ -25,7 +21,7 @@ before_action :authorize?, only: :edit
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id.to_s
-      #this creates a session with the user that just signed up7
+      #this creates a session with the user that just signed up
       redirect_to users_path
     else
       render :new
@@ -46,7 +42,13 @@ before_action :authorize?, only: :edit
   end
 
   def destroy
+    # @user = User.find(params[:id])
+    # @user.destroy
+    # redirect_to users_path
     @user = User.find(params[:id])
+    if(params[:id] == session[:user_id])
+      session.delete(:user_id)
+    end
     @user.destroy
     redirect_to users_path
   end
@@ -65,3 +67,10 @@ private
   end
 
 end
+
+
+
+
+
+
+

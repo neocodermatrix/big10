@@ -1,4 +1,4 @@
-<h1>SHOW USER PAGE: This is <%= @user.name %>'s show page</h1>
+<h1>USER'S SHOW PAGE: This is <%= @user.name %>'s show page</h1>
 <%= @user.address %><br>
 <%= @user.city %><br>
 <%= @user.state %><br>
@@ -6,31 +6,46 @@
 <%= @user.email %><br>
 
 <!-- <button>Request Friendship</button> -->
-
-<ul>
-<% @user.users_events.each do |e| %>
+<h1>Events I've Created</h1>
+<ol>
+<% @user.created_events.each do |e| %>
 <li>
-	<%= link_to e.event.name, event_path(e.event_id) %><br>
-	<%= e.event.description %><br>
-	<%= e.event.address %><br>
-	<%= e.event.city %><br>
-	<%= e.event.state %><br>
-	<%= e.event.zip %><br>
-	<%= e.event.cost %><br><br>
+	<%#= link_to e.name, event_path(e.event_id) %><br>
+	<%= link_to e.name, event_path(e) %><br>
+	<%= e.description %><br>
+	<%= e.address %><br>
+	<%= e.city %><br>
+	<%= e.state %><br>
+	<%= e.zip %><br>
+	<%= e.cost %><br><br>
 </li>
 <% end %>
-</ul>
+</ol>
 
-<ul>
-	
-<% @user.events.each do |f| %> 
-
+<h1>Events I'm attending</h1>
+<ol>
+<% @user.events_attending.each do |f| %> 
 <li>
-	<%= f.name %><br>
+	<%= link_to f.name, event_path(f) %><br>
 	<%= f.description %><br>
-	<%= f.cost %><br>
+	<%= f.address %><br>
+	<%= f.city %><br>
+	<%= f.state %><br>
+	<%= f.zip %><br>  
+	<%= f.cost %><br><br>
 </li>
 	<% end %>
+</ol>
 
-<%= @event1 %>
-</ul>
+
+
+
+
+
+
+
+
+
+
+
+
