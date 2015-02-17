@@ -7,6 +7,8 @@ class EventsController < ApplicationController
   def show
     #@user = User.where(:user => user_id).first
     @event = Event.find(params[:id])
+    @user_attending = @event.users.include?(current_user)
+    #gets an array users attending and it test to see if our current_user is one of them 
   end
 
   def new
