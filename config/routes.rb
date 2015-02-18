@@ -1,30 +1,16 @@
 Rails.application.routes.draw do
 
-  get 'posts/index'
-
-  get 'posts/show'
-
-  get 'posts/new'
-
-  get 'posts/create'
-
-  get 'posts/edit'
-
-  get 'posts/update'
-
-  get 'posts/destroy'
-
-  root 'users#index'
   
   resources :users
   get '/signup' => 'users#new'
 
-  #resources :events
 
   resources :events do 
     post 'attend', on: :member
     delete 'leave', on: :member
   end
+
+  resources :posts
 
   get '/login'     => 'sessions#new'
   post '/login'    => 'sessions#create'

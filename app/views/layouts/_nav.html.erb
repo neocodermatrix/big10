@@ -11,9 +11,11 @@
 		<li><%= link_to "Sign Up", signup_path %></li>
 		<li><%= link_to "Home Page", users_path %></li>
 		<li><%= link_to "Events Page", events_path %></li>
+
 		<li>
 			<% if current_user %>
 				<%= link_to "Create Events", new_event_path %><br>
+				<%= link_to "Create Posts", new_post_path %><br>
 				<%= link_to "Edit Profile", edit_user_path(current_user) %><br>
 			<% end %>
 		</li>

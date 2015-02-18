@@ -37,7 +37,14 @@
 	<% end %>
 </ol>
 
-
+<h1><%= @user.name %>'s Posting</h1>
+<ul>
+	<% @user_posting.each do |up| %>
+	<li>
+		<%= link_to up.title, post_path(up) %>
+	</li>
+	<% end %>
+</ul>
 
 
 

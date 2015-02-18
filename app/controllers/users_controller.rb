@@ -11,6 +11,7 @@ before_action :authorize?, only: :edit
   def show
     @user = User.find(params[:id])
     @user_attending = @user.events_attending
+    @user_posting = @user.posts
   end
 
   def new

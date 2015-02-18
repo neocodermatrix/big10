@@ -1,2 +1,16 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h1><%= @post.title %></h1>
+
+<%= @post.title %>
+<%= @post.body %><br><br>
+
+<% if current_user.id == @post.user_id %>
+<%= link_to "Edit Posting", edit_post_path(@post) %><br>
+<% end %>
+
+<%= link_to "Post Index Page", posts_path %>
+
+
+
+
+
+
