@@ -1,17 +1,7 @@
-<%= form_for @post do |p| %>
 
-	<div>
-		<%= p.label "Title", :title %>
-		<%= p.text_field :title %>
-	</div><br>
-	
-	<div>
-		<%= p.label "Body", :body %>
-		<%= p.text_area :body %>
-	</div>
 
-	</div>
-		<%= p.submit "Submit" %>
-<% end %>
+<%= render 'post_form' %>
+
+
 
 

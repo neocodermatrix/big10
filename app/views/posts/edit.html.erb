@@ -1,20 +1,6 @@
 <h1>Edit <%= @post.title %></h1>
 
-<%= form_for @post do |p| %>
-
-	<div>
-		<%= p.label "Title", :title %>
-		<%= p.text_field :title %>
-	</div>
-	
-	<div>
-		<%= p.label "Body", :body %>
-		<%= p.text_area :body %>
-	</div>
-
-	</div>
-		<%= p.submit "Submit" %>
-<% end %>
+<%= render 'post_form' %>
 <br>
 <%= link_to "Delete Event", :post, method: :delete, data: { confirm: "Are you sure?"} %><br>
 <%= link_to "Post Index Page", posts_path %>

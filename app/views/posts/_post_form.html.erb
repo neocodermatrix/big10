@@ -1,0 +1,17 @@
+<%= form_for @post do |p| %>
+
+	<div>
+		<%= p.label "Title", :title %>
+		<%= p.text_field :title %>
+	</div>
+	
+	<div>
+		<%= p.label "Body", :body %>
+		<%= p.text_area :body %>
+	</div>
+
+	<%#----->= hidden_field_tag "event_id", @event.id %>
+
+	</div>
+		<%= p.submit "Submit" %>
+<% end %>

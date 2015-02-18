@@ -7,11 +7,12 @@ class EventsController < ApplicationController
   def show
     #@user = User.where(:user => user_id).first
     @event = Event.find(params[:id])
-
     @user_attending = @event.users.include?(current_user)
     #gets an array of users attending an event and it test to see if our current_user is one of them
-
+    #@post = Post.find(params[:id])
+    #binding.pry
   end
+
 
   def new
     #@user = User.find(params[:id])
@@ -24,7 +25,7 @@ class EventsController < ApplicationController
     #@event.users << current_user #link the user(attendee) to the users_event table
     @event.creator = current_user #link the creator(user) to the event table
     if @event.save
-      redirect_to events_path
+      redirect_to event_path(@event)
     else
       render :new
     end

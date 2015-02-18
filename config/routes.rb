@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     delete 'leave', on: :member
   end
 
-  resources :posts
+  resources :posts do 
+    post 'postingevent', on: :member
+  end
 
   get '/login'     => 'sessions#new'
   post '/login'    => 'sessions#create'
