@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     post 'postingevent', on: :member
   end
 
+  resources :friendships
+
   get '/login'     => 'sessions#new'
   post '/login'    => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
