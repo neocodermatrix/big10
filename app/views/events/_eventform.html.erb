@@ -46,7 +46,24 @@
 		<%= e.label "Zip", :zip %>
 		<%= e.text_field :zip %>
 	</div>
+
+		<div class="field">
+		    <%= e.label "Private?" %> <br />
+		    <%= e.check_box :is_public %> <br />
+		</div>
+
 		<%= e.submit "Submit" %>
 <% end %>
 
+<% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 

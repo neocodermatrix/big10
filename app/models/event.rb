@@ -5,12 +5,14 @@ class Event < ActiveRecord::Base
 	# belongs_to :creator, class_name: "User", foreign_key: "creator_id"
 	belongs_to :creator, class_name: "User"
 	has_many :posts
+	has_many :event_requests
 
-  	validate :happened_at_is_valid_datetime
+  # 	validate :happened_at_is_valid_datetime
 
- 	def happened_at_is_valid_datetime
-    	errors.add(:happened_at, 'must be a valid datetime') if ((DateTime.parse(happened_at) rescue ArgumentError) == ArgumentError)
- 	end
+ 	# def happened_at_is_valid_datetime
+  #   	errors.add(:happened_at, 'must be a valid datetime') if ((DateTime.parse(happened_at) rescue ArgumentError) == ArgumentError)
+ 	# end
 
+ 	validates_date :start_date, :on_or_before => lambda { :end_date }
 
 end

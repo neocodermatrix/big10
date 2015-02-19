@@ -1,20 +1,25 @@
 class PostsController < ApplicationController
+  require 'pry'
+
   def index
     @posts = Post.all 
   end
 
   def show
+    #pry.binding
+    #@event = Event.find(current_user)
     @user = User.find(current_user)
     @post = Post.find(params[:id])
-    #binding.pry
+    
+    
   end
 
-  def postingevent
-    @post_event = Post.new
-    @post_event.user_id = current_user.id 
-    @post_event.event_id = params[:id]
-    @post_event.save
-    redirect_to post_path
+  # def postingevent
+  #   @post_event = Post.new
+  #   @post_event.user_id = current_user.id 
+  #   @post_event.event_id = params[:id]
+  #   @post_event.save
+  #   redirect_to post_path
 
 
    # @new_attendee = UsersEvent.new 
@@ -22,7 +27,7 @@ class PostsController < ApplicationController
    #  @new_attendee.event_id = params[:id]
    #  @new_attendee.save
    #  redirect_to event_path
-  end
+  # end
 
 
   def new
@@ -30,12 +35,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    #binding.pry
+    #pry.binding
+
     @user = User.find(current_user)
     @post = @user.posts.new(posts_params)
-    #---->@post.event_id = params[:event_id] #allows the hiddle field in post partial to tie post id with the particular event id.
+    @post.event_id = params[:event_id] #Entering event_id to Post table event_id.
     if @post.save
-      redirect_to posts_path
+      #redirect_to event_path(params[:event_id])
+      redirect_to event_path(@post.event_id)
     else
       render :new
     end

@@ -11,6 +11,8 @@ class EventsController < ApplicationController
     #gets an array of users attending an event and it test to see if our current_user is one of them
     #@post = Post.find(params[:id])
     #binding.pry
+    @post = Post.new 
+    @posting = @event.posts
   end
 
 

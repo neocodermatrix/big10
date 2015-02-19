@@ -15,47 +15,8 @@
 	</li>
 </ul>
 
-<%#= link_to "Add Post", new_post_path %><br>
-<div>
-	<%#= render 'posts/post_form' %>
-</div>
-
-<div>
-	<%# @post do |p| %>
-	<li>
-		<%#= p.title %>
-	</li> 
-	<%# end %>
-</div>
-
-
-
-<div>
-<%#= form_for @post do |p| %>
-
-	<div>
-		<%#= p.label "Title", :title %>
-		<%#= p.text_field :title %>
-	</div>
-	
-	<div>
-		<%#= p.label "Body", :body %>
-		<%#= p.text_area :body %>
-	</div>
-
-	<%#----->= hidden_field_tag "event_id", @event.id %>
-
-	</div>
-		<%#= p.submit "Submit" %>
-<%# end %>
-</div>
-
-
-
-
 
 <br>
-<%#= @event.users %>
 
 <% if current_user == @event.creator %>
 <%= link_to "Edit Event", edit_event_path %><br>
@@ -80,7 +41,40 @@
 	<% end %>
 </ul>
 
-<%#= @user_attending %>
+
+
+<div>
+<%= form_for @post do |p| %>
+
+	<div>
+		<%= p.label "Title", :title %>
+		<%= p.text_field :title %>
+	</div>
+	<br>
+	<div>
+		<%= p.label "Body", :body %>
+		<%= p.text_area :body %>
+	</div>
+
+	<%= hidden_field_tag :event_id, @event.id %>
+
+	
+		<%= p.submit "Submit" %>
+<% end %>
+</div>
+
+
+<div>
+	<% @posting.each do |p| %>
+	<li>
+		<%= link_to p.title, post_path(p) %>
+		 <%#= p.body %><br>
+	</li>
+	<% end %>
+</div>
+
+
+
 
 
 

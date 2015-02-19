@@ -1,13 +1,13 @@
 <h1><%= @post.title %></h1>
 
-<%= @post.title %>
+<%= @post.title %><br>
 <%= @post.body %><br><br>
 
 <% if current_user.id == @post.user_id %>
 <%= link_to "Edit Posting", edit_post_path(@post) %><br>
 <% end %>
 
-<%= link_to "Post Index Page", posts_path %>
+<%#= link_to "Back", event_path(@event) %>
 
 
 
