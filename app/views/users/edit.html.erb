@@ -1,5 +1,6 @@
 <h1>Edit Profile Page <%= @user.name %></h1>
-<form class="panel">
+
+<!-- <form class="panel"> -->
 	<%= form_for @user do |u| %>
 		<div class="form-group">
 			<%= u.label:name %><br>
@@ -38,6 +39,7 @@
 
 		<div class="form-group">
 			<%= u.label :image, "Upload image" %>
+			<%#= u.file_field :image, multiple: true %>
 			<%= u.file_field :image %>
 		</div>
 
@@ -45,7 +47,7 @@
 			<%= u.submit "Submit" %>
 		</div>
 	<% end %>
-</form>
+<!-- </form> -->
 
 <%= link_to "Home Page", users_path %><br>
 <%= link_to "Delete", :user, method: :delete, data: {confirm: "Are you sure?"} %>

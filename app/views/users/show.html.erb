@@ -3,6 +3,8 @@
         <%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>
     <% end %>
 
+<%= image_tag(@user.image_url(:full)) %>
+
     <h4>Friends</h4>
     <ul>
         <% @user.friends.each do |friend| %>

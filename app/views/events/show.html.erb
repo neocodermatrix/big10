@@ -1,5 +1,7 @@
 <h1>SHOW EVENT PAGE: Welcome to <%= @event.name %>'s page</h1>
 
+<%= image_tag(@event.image_url(:full)) %>
+
 <ul>
 	<li>
 		<%= @event.name %><br>

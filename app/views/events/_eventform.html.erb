@@ -1,12 +1,15 @@
+
 <h1>Event Form</h1>
+
+<div class="panel-body">
 
 <%= form_for @event do |e| %>
 
-	<div>
-		<%= e.label "Name", :name %>
-		<%= e.text_field :name %>
+	<div class="field form-group">
+		<%= e.label :name, class: "form-text-header" %>
+		<%= e.text_field :name, autofocus: true, class: "form-control"  %>
 	</div>
-	
+
 	<div>
 		<%= e.label "Description", :description %>
 		<%= e.text_field :description %>
@@ -54,11 +57,76 @@
 
 		<div>
 			<%= e.label :image, "Upload image" %>
+			<%#= e.file_field :image, multiple: true %>
 			<%= e.file_field :image %>
 		</div>
 
 		<%= e.submit "Submit" %>
 <% end %>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+	<div>
+		<%#= e.label "Name", :name %>
+		<%#= e.text_field :name %>
+	</div>
+	
+	<div>
+		<%#= e.label "Description", :description %>
+		<%#= e.text_field :description %>
+	</div>
+
+	<div>
+		<%#= e.label "Start Date", :start_date %>
+		<%#= e.date_field :start_date %>
+	</div>	
+
+	<div>
+		<%#= e.label "End Date", :end_date %>
+		<%#= e.date_field :end_date %>
+	</div>
+
+	<div>
+		<%#= e.label "Cost", :cost %>
+		<%#= e.text_field :cost %>
+	</div>
+	
+	<div>
+		<%#= e.label "Address", :address %>
+		<%#= e.text_field :address %>
+	</div>
+
+	<div>
+		<%#= e.label "City", :city %>
+		<%#= e.text_field :city %>
+	</div>
+
+	<div>
+		<%#= e.label "State", :state %>
+		<%#= e.text_field :state %>
+	</div>
+
+	<div>
+		<%#= e.label "Zip", :zip %>
+		<%#= e.text_field :zip %>
+	</div>
+
+		<div class="field">
+		    <%#= e.label "Private?" %> <br />
+		    <%#= e.check_box :is_public %> <br />
+		</div>
+
+		<div>
+			<%#= e.label :image, "Upload image" %>
+			<%#= e.file_field :image %>
+		</div>
+
+		<%#= e.submit "Submit" %>
+<%# end %>
 
 <% if @event.errors.any? %>
     <div id="error_explanation">
@@ -72,3 +140,4 @@
     </div>
   <% end %>
 
+</div>
