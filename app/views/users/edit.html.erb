@@ -1,50 +1,51 @@
 <h1>Edit Profile Page <%= @user.name %></h1>
+<form class="panel">
+	<%= form_for @user do |u| %>
+		<div class="form-group">
+			<%= u.label:name %><br>
+			<%= u.text_field :name %>
+		</div>
 
-<%= form_for @user do |u| %>
-	<div>
-		<%= u.label "Name", :name %>
-		<%= u.text_field :name %>
-	</div>
+		<div class="form-group">
+			<%= u.label :address %><br>
+			<%= u.text_field :address %>
+		</div>
 
-	<div>
-		<%= u.label "Address", :address %>
-		<%= u.text_field :address %>
-	</div>
+		<div class="form-group">
+			<%= u.label "City", :city %>
+			<%= u.text_field :city %>
+		</div>
 
-	<div>
-		<%= u.label "City", :city %>
-		<%= u.text_field :city %>
-	</div>
+		<div class="form-group">
+			<%= u.label "State", :state %>
+			<%= u.text_field :state %>
+		</div>
 
-	<div>
-		<%= u.label "State", :state %>
-		<%= u.text_field :state %>
-	</div>
+		<div class="form-group">
+			<%= u.label "Zip", :zip %>
+			<%= u.text_field :zip %>
+		</div>
 
-	<div>
-		<%= u.label "Zip", :zip %>
-		<%= u.text_field :zip %>
-	</div>
+		<div class="form-group">
+			<%= u.label "Password", :password %>
+			<%= u.password_field :password %>
+		</div>
 
-	<div>
-		<%= u.label "Password", :password %>
-		<%= u.password_field :password %>
-	</div>
+		<div class="form-group">
+			<%= u.label "Password", :password_confirmation %>
+			<%= u.password_field :password_confirmation %>
+		</div>
 
-	<div>
-		<%= u.label "Password", :password_confirmation %>
-		<%= u.password_field :password_confirmation %>
-	</div>
+		<div class="form-group">
+			<%= u.label :image, "Upload image" %>
+			<%= u.file_field :image %>
+		</div>
 
-	<div>
-		<%= u.label :image, "Upload image" %>
-		<%= u.file_field :image %>
-	</div>
-
-	<div>
-		<%= u.submit "Submit" %>
-	</div>
-<% end %>
+		<div class="form-group">
+			<%= u.submit "Submit" %>
+		</div>
+	<% end %>
+</form>
 
 <%= link_to "Home Page", users_path %><br>
 <%= link_to "Delete", :user, method: :delete, data: {confirm: "Are you sure?"} %>
