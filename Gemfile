@@ -34,7 +34,7 @@ gem 'carrierwave'
 # gem 'capistrano-rails', group: :development
 gem 'fog'         # required for Amazon S3
 gem 'mini_magick' # for post-upload image processing
-
+gem 'bootstrap-sass', '~> 3.2.0'
 
  group :development, :test do
   gem 'byebug'

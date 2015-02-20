@@ -39,7 +39,8 @@ before_action :authorize?, only: :edit
     if @user.update_attributes(user_params)
       redirect_to user_path(@user)
     else
-      render "Edit"
+      #render "Edit" 
+      render :edit
     end
   end
 

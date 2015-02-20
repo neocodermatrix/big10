@@ -5,7 +5,9 @@
 <% @users.each do |u| %>
 	<ul>
 		<li>
-			<%= image_tag u.image.url %>
+			<%= image_tag u.image.url(:thumb) %>
+			<%#= image_tag u.image.url %>
+			<%#= link_to image_tag u.image.url, user_path(u) %>
 			<%= link_to u.name, user_path(u) %>
 			<%= u.city %>
 		</li>

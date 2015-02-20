@@ -52,6 +52,11 @@
 		    <%= e.check_box :is_public %> <br />
 		</div>
 
+		<div>
+			<%= e.label :image, "Upload image" %>
+			<%= e.file_field :image %>
+		</div>
+
 		<%= e.submit "Submit" %>
 <% end %>
 
