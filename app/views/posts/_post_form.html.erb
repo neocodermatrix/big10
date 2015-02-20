@@ -1,17 +1,18 @@
 <%= form_for @post do |p| %>
 
-	<div>
+	<div class="form-group">
 		<%= p.label "Title", :title %>
 		<%= p.text_field :title %>
 	</div>
 	
-	<div>
+	<div class="form-group">
 		<%= p.label "Body", :body %>
 		<%= p.text_area :body %>
 	</div>
 
 	<%#----->= hidden_field_tag "event_id", @event.id %>
-
+	<div class="form-group">
+		<%= p.submit "Submit", class: "btn btn-primary" %>
 	</div>
-		<%= p.submit "Submit" %>
+		
 <% end %>

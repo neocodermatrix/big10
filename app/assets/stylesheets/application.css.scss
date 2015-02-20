@@ -17,7 +17,7 @@
  @import "bootstrap";
 
  #nav-title {
- 	font-size: 20px;
+ 	font-size: 24px;
  	font-weight: 700;
  	padding-right: 40px;
  }
@@ -29,10 +29,12 @@
 .footer {
   padding-top: 15px;
   padding-left: 20px;
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-  background-color: #f5f5f5;
+  background-color: #333333;
+  color: white;
+  text-align: center;
 }

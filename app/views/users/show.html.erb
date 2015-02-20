@@ -1,9 +1,17 @@
+<%= image_tag(@user.image_url(:full)) %>
+
+<h2><%= @user.name %>'s profile page</h2>
+<%= @user.address %><br>
+<%= @user.city %><br>
+<%= @user.state %><br>
+<%= @user.zip %><br>
+<%= @user.email %><br>
+
 <div>
-	    <% unless current_user == @user %>
+      <% unless current_user == @user %>
         <%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>
     <% end %>
 
-<%= image_tag(@user.image_url(:full)) %>
 
     <h4>Friends</h4>
     <ul>
@@ -19,7 +27,7 @@
 
     <% if current_user == @user %>
         <h4>Friend Requests</h4>
-        	<%#= @requests.inspect %>
+          <%#= @requests.inspect %>
         <ul>
             <% @user.requested_friendships.each do |request| %>
             <li>
@@ -31,23 +39,8 @@
         </ul>
     <% end %>
 </div>
-
-
-
-
-
-
-
-<h1>USER'S SHOW PAGE: This is <%= @user.name %>'s show page</h1>
-<%= @user.address %><br>
-<%= @user.city %><br>
-<%= @user.state %><br>
-<%= @user.zip %><br>
-<%= @user.email %><br>
-
-
 <!-- <button>Request Friendship</button> -->
-<h1>Events I've Created</h1>
+<h3>Events <%= @user.name %> Created</h3>
 <ol>
 <% @user.created_events.each do |e| %>
 <li>
@@ -63,7 +56,7 @@
 <% end %>
 </ol>
 
-<h1>Events I'm attending</h1>
+<h3>Events <%= @user.name %> attending</h3>
 <ol>
 <% @user.events_attending.each do |f| %> 
 <li>
@@ -78,7 +71,7 @@
 	<% end %>
 </ol>
 
-<h1><%= @user.name %>'s Posting</h1>
+<h3><%= @user.name %>'s Posting</h3>
 <ul>
 	<% @user_posting.each do |up| %>
 	<li>
