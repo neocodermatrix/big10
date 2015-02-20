@@ -1,3 +1,5 @@
+#require 'carrierwave/orm/activerecord'
+
 class User < ActiveRecord::Base
 	has_many :events_attending, through: :users_events, class_name: Event, source: :event, dependent: :destroy  #events users are attending
 	has_many :users_events, dependent: :destroy
@@ -14,6 +16,9 @@ class User < ActiveRecord::Base
     has_many :passive_friends, -> { where(friendships: { approved: true}) }, :through => :passive_friendships, :source => :user
     has_many :pending_friends, -> { where(friendships: { approved: false}) }, :through => :friendships, :source => :friend
     has_many :requested_friendships, -> { where(friendships: { approved: false}) }, :through => :passive_friendships, :source => :user
+	#mount_uploader :image, AvatarUploader
+	mount_uploader :image, AvatarUploader
+    has_many :photos
 
 
     def friends

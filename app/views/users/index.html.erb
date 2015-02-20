@@ -5,6 +5,7 @@
 <% @users.each do |u| %>
 	<ul>
 		<li>
+			<%= image_tag u.image.url %>
 			<%= link_to u.name, user_path(u) %>
 			<%= u.city %>
 		</li>

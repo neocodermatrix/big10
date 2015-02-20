@@ -29,10 +29,11 @@ gem 'bcrypt', '~> 3.1.10'
 gem 'validates_timeliness', '~> 3.0'
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'carrierwave'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'fog'         # required for Amazon S3
+gem 'mini_magick' # for post-upload image processing
 
 
  group :development, :test do

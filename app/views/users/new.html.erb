@@ -46,10 +46,16 @@
 		<%= u.label :password_confirmation, "password confirmation" %>
 		<%= u.password_field :password_confirmation %>
 	</div>
-
+		<div>
+		<%= u.label :image, "Upload image" %>
+		<%= u.file_field :image %>
+		</div>
+		
 		<%= u.submit "Submit" %>
 
 <% end %>
+
+
 
 <%= link_to "Home Page", users_path %>
 

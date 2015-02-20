@@ -7,6 +7,8 @@ class Event < ActiveRecord::Base
 	has_many :posts
 	has_many :event_requests
 
+	has_many :photos
+
   # 	validate :happened_at_is_valid_datetime
 
  	# def happened_at_is_valid_datetime
